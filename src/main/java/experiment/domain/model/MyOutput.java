@@ -3,7 +3,6 @@ package experiment.domain.model;
 import experiment.domain.AbstractDomainObject;
 import org.codehaus.jackson.annotate.JsonIgnore;
 import org.codehaus.jackson.annotate.JsonProperty;
-import org.codehaus.jackson.map.annotate.JsonFilter;
 
 /** Example JSON output.
  * 
@@ -13,6 +12,7 @@ public class MyOutput extends AbstractDomainObject {
 	private String myText; 	
 	@JsonProperty("my_rates_xml_cdata")
 	private String myField;
+	private String myCurrencies;
 	@JsonIgnore
 	private String mySecretText; 	
 
@@ -38,5 +38,13 @@ public class MyOutput extends AbstractDomainObject {
 
 	public void setMySecretText(String mySecretText) {
 		this.mySecretText = mySecretText;
+	}
+
+	public String getMyCurrencies() {
+		return myCurrencies;
+	}
+
+	public void setMyCurrencies(String myCurrencies) {
+		this.myCurrencies = myCurrencies;
 	}
 }

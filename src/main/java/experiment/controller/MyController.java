@@ -22,7 +22,7 @@ import org.springframework.web.bind.annotation.ResponseBody;
  * Sprint REST Client: http://docs.spring.io/spring/docs/3.2.0.RELEASE/spring-framework-reference/html/remoting.html#rest-client-access
  * Spring XML mapper: http://docs.spring.io/spring-framework/docs/3.2.x/spring-framework-reference/html/oxm.html
  * Jackson JSON annotations: http://wiki.fasterxml.com/JacksonAnnotations
- * JAXB XML annotations: http://docs.oracle.com/javase/tutorial/jaxb/intro/ and https://jaxb.java.net/tutorial/
+ * JAXB XML annotations: http://docs.oracle.com/javase/tutorial/jaxb/intro/ and https://jaxb.java.net/tutorial/ and https://jaxb.java.net/2.2.4/docs/xjc.html
  */
 @Controller
 @RequestMapping("/example.json")
