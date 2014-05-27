@@ -1,9 +1,9 @@
-package experiment.services.transformer;
+package experiment.service.transformer;
 
-import experiment.domain.ApplicationException;
-import experiment.domain.Command;
-import experiment.domain.MyInput;
-import experiment.domain.MyOutput;
+import experiment.domain.exception.ApplicationException;
+import experiment.domain.stereotypes.Command;
+import experiment.domain.model.MyInput;
+import experiment.domain.model.MyOutput;
 import org.springframework.stereotype.Component;
 
 @Component

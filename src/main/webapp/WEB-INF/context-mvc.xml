@@ -9,8 +9,7 @@
         http://www.springframework.org/schema/mvc
         http://www.springframework.org/schema/mvc/spring-mvc-3.0.xsd">
 
-	<context:component-scan base-package="experiment.controllers" />
-	<context:component-scan base-package="experiment.service" />
+	<context:component-scan base-package="experiment.controller" />
 
 	<!-- THIS ACTIVATES JACKSON MAPPER TOO, OR YOU NEED TO DECLARE
 http://static.springsource.org/spring/docs/3.0.x/javadoc-api/org/springframework/http/converter/json/MappingJacksonHttpMessageConverter.html YOURSELF -->

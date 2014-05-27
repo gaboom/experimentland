@@ -1,5 +1,6 @@
-package experiment.domain;
+package experiment.domain.model;
 
+import experiment.domain.AbstractDomainObject;
 import org.codehaus.jackson.annotate.JsonProperty;
 
 /** Example JSON input.

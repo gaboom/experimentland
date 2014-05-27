@@ -1,6 +1,7 @@
 package experiment.domain;
 
 import java.io.Serializable;
+import javax.xml.bind.annotation.XmlTransient;
 import org.apache.commons.lang.builder.EqualsBuilder;
 import org.apache.commons.lang.builder.HashCodeBuilder;
 import org.apache.commons.lang.builder.ToStringBuilder;
@@ -8,7 +9,8 @@ import org.apache.commons.lang.builder.ToStringBuilder;
 /**
  * Suggested root class of all domain objects.
  */
-public class AbstractDomainObject implements Serializable {
+@XmlTransient // this annotation is required by possible @XmlValue using subclasses
+public abstract class AbstractDomainObject implements Serializable {
 	@Override
 	public String toString() {
 		return ToStringBuilder.reflectionToString(this);
@@ -23,5 +25,4 @@ public class AbstractDomainObject implements Serializable {
 	public int hashCode() {
 		return HashCodeBuilder.reflectionHashCode(this);
 	}
-	
 }

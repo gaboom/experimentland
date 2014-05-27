@@ -1,6 +1,9 @@
-package experiment.domain;
+package experiment.domain.model;
 
+import experiment.domain.AbstractDomainObject;
 import org.codehaus.jackson.annotate.JsonIgnore;
+import org.codehaus.jackson.annotate.JsonProperty;
+import org.codehaus.jackson.map.annotate.JsonFilter;
 
 /** Example JSON output.
  * 
@@ -8,6 +11,7 @@ import org.codehaus.jackson.annotate.JsonIgnore;
  */
 public class MyOutput extends AbstractDomainObject {
 	private String myText; 	
+	@JsonProperty("my_rates_xml_cdata")
 	private String myField;
 	@JsonIgnore
 	private String mySecretText; 	

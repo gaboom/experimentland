@@ -1,4 +1,4 @@
-package experiment.domain;
+package experiment.domain.stereotypes;
 
 /**
  * Suggested generic interface service-like domain objects.

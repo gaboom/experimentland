@@ -1,10 +1,10 @@
-package experiment.services;
+package experiment.service;
 
-import experiment.domain.MyInput;
-import experiment.domain.MyOutput;
-import experiment.domain.Processor;
-import experiment.services.remote.MyRemote;
-import experiment.services.transformer.MyTransformer;
+import experiment.domain.model.MyInput;
+import experiment.domain.model.MyOutput;
+import experiment.domain.stereotypes.Processor;
+import experiment.service.transformer.MyPopulator;
+import experiment.service.transformer.MyTransformer;
 import javax.annotation.Resource;
 import org.springframework.stereotype.Component;
 
@@ -13,14 +13,14 @@ public class MyFacade implements Processor<MyInput, MyOutput> {
 	@Resource
 	private MyTransformer myTransformer;
 	@Resource
-	MyRemote myRemote;
+	private MyPopulator myPopulator;
 	
 	@Override
 	public MyOutput process(MyInput input) {
 		MyOutput result = new MyOutput();
 		
 		myTransformer.apply(result, input);
-		myRemote.apply(result, null);
+		myPopulator.apply(result, null);
 		
 		return result;
 	}

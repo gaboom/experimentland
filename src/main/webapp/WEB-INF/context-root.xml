@@ -1,7 +1,7 @@
 <beans xmlns="http://www.springframework.org/schema/beans"
-	xmlns:context="http://www.springframework.org/schema/context"
-	xmlns:mvc="http://www.springframework.org/schema/mvc" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-	xsi:schemaLocation="
+       xmlns:context="http://www.springframework.org/schema/context"
+       xmlns:mvc="http://www.springframework.org/schema/mvc" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="
         http://www.springframework.org/schema/beans     
         http://www.springframework.org/schema/beans/spring-beans-3.0.xsd
         http://www.springframework.org/schema/context 
@@ -10,6 +10,37 @@
         http://www.springframework.org/schema/mvc/spring-mvc-3.0.xsd">
 
 	<context:component-scan base-package="experiment.domain" />
-	<context:component-scan base-package="experiment.services" />
+	<context:component-scan base-package="experiment.service" />
 
+	<bean id="mnbRestTemplate" class="org.springframework.web.client.RestTemplate">
+		<constructor-arg>
+			<bean class="org.springframework.http.client.HttpComponentsClientHttpRequestFactory">
+				<property name="readTimeout" value="2000" />
+				<property name="connectTimeout" value="2000" />
+			</bean>
+		</constructor-arg>
+		<property name="messageConverters">
+			<list>
+				<bean class="org.springframework.http.converter.xml.MarshallingHttpMessageConverter">
+					<property name="marshaller" ref="mnbJaxbMarshaller"/>
+					<property name="unmarshaller" ref="mnbJaxbMarshaller"/>
+				</bean>
+				<bean class="org.springframework.http.converter.FormHttpMessageConverter"/>
+				<bean class="org.springframework.http.converter.StringHttpMessageConverter"/>
+			</list>
+		</property>
+	</bean>
+	<bean id="mnbJaxbMarshaller" class="org.springframework.oxm.jaxb.Jaxb2Marshaller">
+		<property name="classesToBeBound">
+			<list>
+				<value>experiment.domain.model.xml.GetCurrentExchangeRates</value>
+				<value>experiment.domain.model.xml.GetCurrentExchangeRatesResponse</value>
+				<value>experiment.domain.model.xml.GetCurrentExchangeRatesResult</value>
+				<value>experiment.domain.model.xml.SoapBodyRequest</value>
+				<value>experiment.domain.model.xml.SoapBodyResponse</value>
+				<value>experiment.domain.model.xml.SoapEnvelopeRequest</value>
+				<value>experiment.domain.model.xml.SoapEnvelopeResponse</value>
+			</list>
+		</property>
+	</bean>
 </beans>

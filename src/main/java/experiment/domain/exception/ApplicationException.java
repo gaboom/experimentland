@@ -1,4 +1,4 @@
-package experiment.domain;
+package experiment.domain.exception;
 
 /**
  * Suggested root exception.
